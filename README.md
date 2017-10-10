@@ -58,14 +58,17 @@ const counter = {
 
 app({
   modules: { counter },
-  view(state, actions, { counter }) {
+  view: (state, actions, { Counter }) => (
     main([
       h1("The counter :"),
       counter()
     ])
-  }
+  )
 })
 ```
+### Note
+The `counter` module is given as `Counter` to be JSX compliant as JSX require
+component to be capitalized.
 
 ## API
 
@@ -84,7 +87,7 @@ The HOA to enhance hyperapp app function
 ```jsx
 import { moduleView } from "hyperapp-module-view"
 
-app(moduleView)(Props)
+moduleView(app)(Props)
 ```
 
 ## License
